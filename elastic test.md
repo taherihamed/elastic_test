@@ -1,16 +1,26 @@
-PUT my-index/_create/1
+PUT my-index
 {
-    "mapping": 
+    "mappings":
     {
-        "properties": 
+        "properties":
         {
             "name":
             {
-                "type": "keyword"
+                "type": "text",
+                "fields": {
+                    "raw": {
+                        "type": "keyword"
+                    }
+                }
             },
             "family":
             {
-                "type": "keyword"
+                "type": "text",
+                "fields": {
+                    "raw": {
+                        "type": "keyword"
+                    }
+                }
             },
             "date":
             {
@@ -20,10 +30,10 @@ PUT my-index/_create/1
             {
                 "type": "short"
             },
-            "educational background": 
+            "educational background":
             {
                 "type": "nested",
-                "properties": 
+                "properties":
                 {
                     "degree level":
                     {
@@ -36,7 +46,7 @@ PUT my-index/_create/1
                     "thesis":
                     {
                         "type": "nested",
-                        "properties": 
+                        "properties":
                         {
                             "title":
                             {
@@ -68,9 +78,7 @@ PUT my-index/_create/1
                         }
                     }
                 }
-
             }
         }
-      
     }
 }
